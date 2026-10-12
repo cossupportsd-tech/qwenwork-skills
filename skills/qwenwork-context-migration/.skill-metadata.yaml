@@ -1,0 +1,67 @@
+examples:
+  - id: plan-migration
+    title:
+      zh: 规划迁移到新设备
+      en: Plan a migration to a new device
+    description:
+      zh: 说明如何把记忆/画像/聊天带到另一台电脑并用同账号继续
+      en: Explain how to carry memory, profile, and chats to another PC and continue on the same account
+    prompt:
+      zh: |-
+        我想在另一台电脑上继续和 QwenWork 协作，用同一个账号。
+        目标设备：{{例如 Windows 办公电脑}}
+        请告诉我需要复制哪些文件、放在什么路径，以及登录后会自动带过来和不会自动同步的部分。
+      en: |-
+        I want to keep working with QwenWork on another machine using the same account.
+        Target device: {{e.g. a Windows work PC}}
+        Tell me which files to copy, where they go, and what the account login brings over versus what stays local.
+  - id: package-memory
+    title:
+      zh: 打包记忆为可携带压缩包
+      en: Package memory into a portable archive
+    description:
+      zh: 把 awareness 记忆目录打包成单个 zip 以便拷贝到其他设备
+      en: Bundle the awareness memory folder into a single zip to carry to another device
+    prompt:
+      zh: |-
+        把我的 QwenWork 记忆目录（awareness/main）打包成一个 zip 文件，方便我拷到别的电脑。
+        输出路径：{{zip 保存位置，默认 outputs 文件夹}}
+        打包前先扫描并在总结里提醒里面可能包含的敏感信息（IP、账号、密码）。
+      en: |-
+        Bundle my QwenWork memory folder (awareness/main) into a single zip so I can carry it to another computer.
+        Output path: {{where to save the zip, default to the outputs folder}}
+        Before zipping, scan it and flag any sensitive content (IPs, accounts, passwords) in your summary.
+  - id: merge-memory
+    title:
+      zh: 合并两台设备的记忆
+      en: Merge memory across two machines
+    description:
+      zh: 把一台设备的记忆并入另一台而不覆盖原有内容
+      en: Fold one machine's memory into another without overwriting the existing content
+    prompt:
+      zh: |-
+        两台设备都各自有 QwenWork 记忆，我想合并而不丢任何一方的内容。
+        来源设备路径：{{source}}
+        目标设备路径：{{destination}}
+        请逐文件合并：日记类按文件名并集，MEMORY.md/USER.md 分节人工归并，并在覆盖前先备份目标文件。
+      en: |-
+        Both machines have their own QwenWork memory and I want to merge without losing either side.
+        Source path: {{source}}
+        Destination path: {{destination}}
+        Merge file by file: union the daily journals by filename, reconcile MEMORY.md/USER.md section by section, and back up the destination before any overwrite.
+  - id: redact-before-upload
+    title:
+      zh: 上传前脱敏记忆文件
+      en: Redact memory before uploading
+    description:
+      zh: 在把记忆文件推到 GitHub/云端前生成去掉机密的可公开版本
+      en: Produce a secret-free, publishable version of memory files before pushing to GitHub/cloud
+    prompt:
+      zh: |-
+        我想把这份 procedure/记忆相关内容放到 {{GitHub 仓库}}。
+        请生成脱敏版本：移除所有密码、密钥、内部主机名/IP，只保留通用步骤，并给出哪些绝对不应上传的清单。
+        仓库可见性：{{private 或 public}}
+      en: |-
+        I want to put this procedure/memory-related content into {{GitHub repo}}.
+        Produce a redacted version: strip every password, key, internal hostname/IP, keeping only generic steps, and list what must never be uploaded.
+        Repo visibility: {{private or public}}

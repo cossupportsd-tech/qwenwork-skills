@@ -1,0 +1,12 @@
+# Never commit QwenWork private data
+awareness/
+memory/
+*.bak
+.env
+credentials*
+*.key
+*.pem
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
